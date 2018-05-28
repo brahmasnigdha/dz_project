@@ -1,0 +1,689 @@
+html, body{
+	margin:0;
+	font-family: arial;
+}
+
+/*------------------------Header---------------------*/
+.header{
+	width:100%;
+	height:80px;
+	background-color: #434987;
+}
+#logo{
+    width:281px;
+    height:83px;
+}
+/*--------------------navigation------------------------*/
+.navigation{
+    width:100%;
+    background-color: #F8F8F8;
+    border:1px solid #D4D4D4;
+    height: 40px;
+}
+.navigation ul{
+    margin:0px 5px;
+    padding:0;
+}
+.navigation li{
+    float: left;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.navigation li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+.navigation li a:hover{
+     background-color: #aeb3b7;
+     border:1px solid #85898c;
+}
+
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+li#logo3{
+    font-size: 18px;
+    color: #8f9499;
+    padding: 10px 16px;
+
+}
+
+/*@media screen and (max-width: 600px){
+    li#logo3{
+        font-size: 14px;
+    }
+    .navigation{
+       width: 100%;
+       position: relative;
+        min-height: 40px;
+    }
+    .navigation ul{
+        width:180px;
+        padding:5px 0;
+        position: absolute;
+        top:0;
+        left:0;
+        border:1px solid #85898c;
+        box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    }
+
+    .navigation li{
+        display: block;
+    }
+    .navigation a{
+        display: block;
+        padding: 5px 5px 5px 32px;
+        text-align: left;
+    }
+}
+*/
+/*-------------------------Breadcrumb-------------------*/
+.breadcrumb{
+    width: 100%;
+    background-color: #D9D9D9;
+    height: 40px;
+}
+ul.breadcrumb_list {
+    list-style-type: none;
+    margin:0px;
+    padding: 10px 16px;
+   /* background-color: #eee;*/
+}
+ul.breadcrumb_list li{
+    display: inline;
+    font-size: 14px;
+    margin:5px 0px;
+}
+.breadcrumb_list li+li:before {
+    color: black;
+    content: "/\00a0";
+    padding: 8px;
+}
+.breadcrumb_list li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+.breadcrumb_list li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+/*-------------------------Footer-----------------------*/
+.footer{
+	width:100%;
+}
+/*----------------------Grid View-----------------------*/
+.row::after{
+	content:"";
+	clear:both;
+	display: table;
+	margin-top:20px;	
+}
+[class*="col-"]{
+	float:left;
+	padding:15px;
+}
+.col-1{
+	float: left;
+	width :10%;
+}
+.col-2{
+	float: left;
+	width :40%;
+}
+.col-3{
+	float: left;
+	width :40%;
+}
+.col-4{
+	float: left;
+	width :10%;
+}
+/* Responsive layout - makes the columns stack on top of each other 
+instead of next to each other */
+@media screen and (max-width: 600px){
+	[class*="col-"] {
+        width:100%;
+    }
+}
+/*---------------------Login Page--------------------------*/
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+/*---------------------login_image-------------------------*/
+#login_image{
+	width:600px;
+	height:255px;
+	margin-top:100px;
+}
+
+.login_form_fieldset{
+	background-color: #e1e6ed;
+	margin-top: 60px;
+	margin-left: 60px;
+	width:400px;
+	border-radius: 6px;
+	border:none;
+}
+
+.login_form{
+	margin-top: 20px; 
+	width:400px;
+	height:100%;
+	padding: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 4px;
+}
+
+table.login_form_table{
+	width:100%;
+}
+.login_form_table td{
+
+	padding:5px 2px;
+	border-spacing: 12px;
+}
+
+input[type=text], input[type=password]{
+	width: 100%;
+    border: 1px solid #cfd1d3;
+    line-height: 30px;
+    border-radius: 3px;
+    resize: vertical;
+    padding: 5px 5px;
+}
+
+label {
+    padding: 4px 0px;
+    display: inline-block;
+    font-size: 15px;
+}
+
+input[type=submit] {
+    background-color: #3a71c4;
+    padding:8px 12px;
+    color: white;
+  	width: 100%;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+a:hover{
+    color: red;
+}
+
+/*-----------------------modal dialogue---------------------*/
+.modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    }
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+    }
+    .close-button {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+    }
+    .close-button:hover {
+        background-color: darkgray;
+    }
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+/*-----------------------modal button--------------------*/
+#forgot_password_link {
+    text-align: center;
+}
+.trigger{
+	font-size: 14px;
+    color: #3e72c9;
+    cursor: pointer;
+}
+
+.send_button{
+	background-color: #3867b5;
+    padding:8px 12px;
+    color: white;
+  	width: 103%;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.email_info{
+	font-size: 16px;
+
+}
+
+#forgot_password{
+	font-weight: bold;
+
+}
+
+/*---------------------------------Home Page------------------------------*/
+.iframe{
+    height:1040px;
+    width:1040px;
+}
+
+/*-------------------------------Department Page-------------------------*/
+#panel{
+    width:500px;
+}
+p#table_heading{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+form.department_form{
+    border:1px solid #ccc;
+}
+
+td#add_update_button{
+    text-align: left;
+    top: 50%;
+    left: 50%;
+}
+button#add{
+    padding:5px 50px;
+    background-color: #428BCA;
+    color:white;
+    border-radius: 4px;
+    width: 290px;
+}
+button#update{
+    padding:5px 28px;
+    border-radius: 4px;
+}
+
+table.department_table{
+    padding: 15px 20px;
+}
+
+table.department_table td{
+    padding:5px;
+}
+
+#panel2{
+    /*border:1px solid black;*/
+    width:1040px;
+    height: 400px;
+    overflow-y: auto;
+}
+form.department_table_information{
+    border:1px solid lightgray;
+}
+table.department_table_information_table{
+    border:1px solid black;
+    width:100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table.department_table_information_table td, th{
+     border:1px solid white;
+ }
+table.department_table_information_table th{
+    padding: 5px 10px;
+    background-color: #918a8a;
+}
+table.department_table_information_table td{
+    padding: 5px 10px;
+    background-color: #DDDDDD;
+}
+
+input[type=text]#search{
+    width: 400px;
+    line-height: 10px;
+    border-radius:10px;
+}
+td#edit_delete_button{
+    text-align: center;
+}
+th#search_bar{
+    text-align: center;
+}
+
+button.edit{
+     background-color: white;
+    border-radius: 4px;
+    padding: 5px 40px;
+}
+
+button.delete {
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px 30px;
+}
+
+/*-----------------------------Create User------------------------------*/
+#panel_create_user{
+    width:550px;
+
+}
+button#add_user{
+    padding:5px 50px;
+    background-color: #428BCA;
+    color:white;
+    border-radius: 4px;
+    width: 290px;
+}
+p#table_heading_createUser{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+
+form.create_user_form{
+    border:1px solid lightgray;
+}
+select.create_user_select {
+    padding: 7px;
+    border-color: lightgray;
+    border-radius: 4px;
+}
+
+#panel2_create_user{
+    width:1040px;
+     height: 400px;
+    overflow-y: auto;
+}
+table.create_user_table{
+    padding: 5px;
+}
+table.create_user_table td{
+    padding: 5px;
+}
+table.create_user_table_information_table {
+    border:1px solid black;
+    width:100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table.create_user_table_information_table td, th{
+     border:1px solid white;
+ }
+ table.create_user_table_information_table th{
+    padding: 5px 10px;
+    background-color: #918a8a;
+}
+table.create_user_table_information_table td{
+    padding: 5px 10px;
+    background-color: #DDDDDD;
+}
+input[type=text]#search_create_user{
+    width: 300px;
+    line-height: 10px;
+    border-radius:10px;
+}
+tr#current_password{
+    display: none;
+}
+
+/*-----------------------------Add New Role---------------------------------*/
+#panel_add_new_role{
+    width:550px;
+}
+
+p#table_heading_add_new_role{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+
+form.add_new_role_form{
+    border:1px solid lightgray;
+}
+
+#panel2_add_new_role{
+    width:1040px;
+    height: 400px;
+    overflow-y: auto;
+}
+table.add_new_role_table{
+    padding: 5px;
+}
+table.add_new_role_table td{
+    padding: 5px;
+}
+table.add_new_role_table_information_table {
+    border:1px solid black;
+    width:100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table.add_new_role_table_information_table td, th{
+     border:1px solid white;
+ }
+ table.add_new_role_table_information_table th{
+    padding: 5px 10px;
+    background-color: #918a8a;
+}
+table.add_new_role_table_information_table td{
+    padding: 5px 10px;
+    background-color: #DDDDDD;
+}
+input[type=text]#search_add_new_role{
+    width: 400px;
+    line-height: 10px;
+    border-radius:10px;
+}
+
+/*-------------------------------Employee Details-------------------------------------*/
+#panel_employee_details{
+   /* border:1px solid black;*/
+    width:1040px;
+}
+p#panel_heading{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+.column_row_2_cols{
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 450px;
+    background-color: #D9D9D9;
+    border-bottom:1px solid white;
+}
+.column_row_2_cols_2{
+    float: left;
+    width: 100%;
+    padding: 10px;
+    /*height: 400px;*/
+    background-color: #D9D9D9;
+    border-bottom:1px solid white;
+}
+
+input[type=text].employee_details_input{
+    height: 35px;
+    border-radius: 2px;
+    border:1px solid gray;
+}
+
+table.employee_details_table th,td{
+    padding: 6px;
+}
+table.employee_details_table th{
+    text-align: left;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid black;
+}
+button#add_employee_button{
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+p#add_employee_button_p{
+    text-align: right;
+    margin:0;
+}
+button.employee_details_browse{
+    padding: 5px 10px;
+}
+/*-------------------------------Salary Details---------------------------------------*/
+#panel_salary_page{
+     width:1040px;
+     /*border:1px solid black;*/
+}
+p#salary_information_heading{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+input[type=text].salary_details_input{
+    height: 35px;
+    border-radius: 2px;
+    border:1px solid gray;
+}
+
+table.salary_details_table th,td{
+    padding: 6px;
+}
+table.salary_details_table th{
+    text-align: left;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid black;
+}
+button#add_salary_button{
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+p#add_salary_button_p{
+    text-align: right;
+    margin:0;
+}
+form.salary_details_form_1{
+    border:1px solid white;
+    width:100%;
+}
+table.salary_details_table_1{
+    border:1px solid white;
+    width:100%;
+    border-collapse: collapse;
+}
+table.salary_details_table_1 th{
+    background-color: #FDCA45;
+    padding:10px;
+}
+table.salary_details_table_1 td{
+    background-color: white;
+    text-align: center;
+}
+button#employee_search_button_salary_page{
+    background-color: #4578cc;
+    padding: 7px 40px;
+    border-radius: 4px;
+    color: white;
+}
+
+/*----------------------------------Attendance Page-------------------------------------*/
+
+#panel_attendance_details{
+     width:1040px;
+     /*border:1px solid black;*/
+}
+p#attendance_panel_heading{
+    background-color: #4f71a8;
+    color:white;
+    margin:0px;
+    padding:5px;
+}
+form.attendance_details_form_1{
+    border:1px solid white;
+    width:100%;
+}
+table.attendance_details_table_1{
+    border:1px solid white;
+    width:100%;
+    border-collapse: collapse;
+}
+table.attendance_details_table_1 th{
+    background-color: #FDCA45;
+    padding:10px;
+}
+table.attendance_details_table_1 td{
+    background-color: white;
+    text-align: center;
+}
+button#submit_attendance{
+    background-color: #4578cc;
+    padding: 7px 40px;
+    border-radius: 4px;
+    color: white;
+}
+button#export_attendance{
+    padding: 7px 40px;
+    border-radius: 4px;
+}
+
