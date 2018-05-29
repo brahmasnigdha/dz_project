@@ -586,6 +586,10 @@ p#add_employee_button_p{
 button.employee_details_browse{
     padding: 5px 10px;
 }
+#employee_details_department {
+    width: 150px;
+    padding: 5px;
+}
 /*-------------------------------Salary Details---------------------------------------*/
 #panel_salary_page{
      width:1040px;

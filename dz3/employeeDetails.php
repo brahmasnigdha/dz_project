@@ -12,7 +12,7 @@
 				 <p id = "panel_heading">Employee Information</p>
 				 <div class = "row_2_cols_1">
 				 <div class = "column_row_2_cols">
-				 	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST"> 
+				 	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/form-data"> 
 				 		<table class="employee_details_table">
 				 			<tr>
 				 				<th colspan="2">Personal</th>
@@ -86,7 +86,7 @@
 				 	</form>
 				 </div>
 				 <div class = "column_row_2_cols">
-				 	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" > 
+				 	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/form-data"> 
 				 		<table class="employee_details_table">
 				 			<tr>
 				 				<th colspan="2">Contact</th>
@@ -137,7 +137,7 @@
 				 </div>
 				 <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/formdata"> 
+			       	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/form-data"> 
 				 		<table class="employee_details_table">
 			       			<tr>
 			       			<th colspan="3">Account Details</th>
@@ -170,7 +170,29 @@
 			       		<tr>
 			       			<td><label>Department</label></td>
 			       			<td>
-			       				<input type="text" name="employee_details_department" class = "employee_details_input">
+			       				<select class="employee_details_input" name="employee_details_department" id="employee_details_department">
+								<?php
+									include 'includes/dbh.inc.php';
+
+									$sql_select = "SELECT * FROM department";
+									$result = mysqli_query($conn, $sql_select);
+									$result_check = mysqli_num_rows($result);
+
+									if($result_check < 0)
+									{
+										header("Location: employeeDetails.php?employeeDetails=no_department");
+										exit();
+									}
+									else
+									{
+										while($row = mysqli_fetch_assoc($result)){
+
+											echo "<option value ='".$row['departmentNo']."' id='".$row['departmentNo']."'>".$row['departmentName']."</option>";
+										}
+									}
+								?>
+								
+				             </select>
 			       			</td>
 			       		</tr>
 			       		<tr>
@@ -179,41 +201,42 @@
 			       				<input type="text" name="employee_details_joining_date" class = "employee_details_input">
 			       			</td>
 			       		</tr>
+<!------------------------------------------------------------------------------------------------------------------------------------>
 			       		<tr>
 			       			<td><label>ID Proof</label></td>
 			       			<td>
-			       				<input type="file" name="employee_details_id_proof" class = "employee_details_input">
+			       				<input type="file" name="id_proof_file" id="id_proof_file" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				<!--<button class="employee_details_browse">Browse</button>-->
+			       				
 			       			</td>
 			       		</tr>
 			       		<tr>
 			       			<td><label>Resume</label></td>
 			       			<td>
-			       				<input type="file" name="employee_details_resume" class = "employee_details_input">
+			       				<input type="file" name="resume_file" id="resume_file" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				<!--<button class="employee_details_browse">Browse</button>-->
+			       				
 			       			</td>
 			       		</tr>
 			       		<tr>
 			       			<td><label>Cover Letter</label></td>
 			       			<td>
-			       				<input type="file" name="employee_details_cover_letter" class = "employee_details_input">
+			       				<input type="file" name="cover_letter_file" id="cover_letter_file" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				<!--<button class="employee_details_browse">Browse</button>-->
+			       				
 			       			</td>
 			       		</tr>
 			       		
-			       		</table>
+<!------------------------------------------------------------------------------------------------------------------------------------>			       		</table>
 			       		
 			       	</form>
 			       </div>
 			       <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST"> 
+			       	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/form-data"> 
 				 		<table class="employee_details_table">
 			       			<tr>
 			       			<th colspan="3">Basics</th>
@@ -230,7 +253,10 @@
 			       </div>
 			        <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       		<p id="add_employee_button_p"><button id="add_employee_button">Add Employee</button></p>
+			       	<form class="employee_details_form" action="includes/employeeDetails.inc.php" method="POST" enctype="multipart/form-data">
+			       		<p id="add_employee_button_p"><button type="submit" id="add_employee_button" name="add_employee_button">Add Employee</button></p>
+			       	</form>
+			       		
 			       </div>
 				 </div>
 			</div>

@@ -21,7 +21,8 @@ function edit_new(id)
       	document.getElementById("department_id").value = dept_no;
         document.getElementById("department_name").value = dept_name;
         document.getElementById("department_location").value = dept_location;
-        
+        document.getElementById("delete").style.display="table-row";
+        document.getElementById("update").style.display="table-row";
 
       }
     };

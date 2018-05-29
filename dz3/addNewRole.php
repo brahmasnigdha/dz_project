@@ -15,7 +15,7 @@
            <table class="add_new_role_table">
             <tr>
                <td></td>
-               <td><input type="text" name="add_new_role_id" id="add_new_role_id"></td>
+               <td><input type="text" name="add_new_role_id" id="add_new_role_id" hidden></td>
              </tr>
              <tr>
                <td><label>New Role Name</label></td>
@@ -31,8 +31,8 @@
              <tr>
                <td></td>
                <td>
-                 <button id="update" name = "update">Update Role</button>
-                 <button id = 'delete' class='delete'>Delete</button>
+                 <button id="update" name = "update" hidden>Update Role</button>
+                 <button id = 'delete' class='delete' name = "delete" hidden>Delete</button>
                </td>
              </tr>
            </table>
@@ -168,6 +168,7 @@
       
     </div>
 </div>
+<script type="text/javascript" src="includejs/addnewrole.js"></script>
 <?php
    include 'footer.php';
 ?>

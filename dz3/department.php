@@ -33,8 +33,8 @@
              <tr>
                <td></td>
                <td>
-                  <button id="update" name = "update">Update</button>
-                  <button id="delete" name = "delete_button" class="delete">Delete</button></td>
+                  <button id="update" name = "update" hidden>Update</button>
+                  <button id="delete" name = "delete_button" class="delete" hidden>Delete</button></td>
              </tr>
              
            </table>

@@ -70,3 +70,44 @@ if(isset($_POST['add_new_role_search']))
       }
    }
 }
+
+if(isset($_POST['update']))
+{
+   $update_id = mysqli_escape_string($conn, $_POST['add_new_role_id']);
+   $update_role = mysqli_escape_string($conn, $_POST['add_new_role_name']);
+
+   $sql_select = "SELECT roleName FROM role_table WHERE roleId = '$update_id'";
+   $result = mysqli_query($conn, $sql_select);
+   $result_check = mysqli_num_rows($result);
+
+   if($result_check > 0)
+   {
+      while($row = mysqli_fetch_assoc($result))
+      {
+         if($row['roleName']===$update_role)        
+         {
+            header("Location: ../addNewRole.php?no_update_require");
+            exit();
+         }
+         else
+         {
+            $sql_update = "UPDATE role_table SET roleName = '$update_role' WHERE roleId = '$update_id'";
+            mysqli_query($conn, $sql_update);
+            header("Location: ../addNewRole.php?update_successful");
+            exit();
+         }
+      }
+   }
+}
+
+if(isset($_POST['delete']))
+{
+   $delete_id = mysqli_escape_string($conn, $_POST['add_new_role_id']);
+   $delete_role = mysqli_escape_string($conn, $_POST['add_new_role_name']);
+
+   $sql_delete = "DELETE FROM role_table WHERE roleId = '$delete_id'";
+   mysqli_query($conn, $sql_delete);
+
+   header("Location: ../addNewRole.php?delete_successful");
+   exit();
+}

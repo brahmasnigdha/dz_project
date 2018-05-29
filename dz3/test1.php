@@ -1,39 +1,22 @@
+<?php
+	//start session
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+      <title></title>
 </head>
 <body>
-	<h1>The XMLHttpRequest Object</h1>
+  
+      <form action = "includes/test.php" method = "POST" enctype="multipart/form-data">
+            
+            Select image to upload:
 
-	<p id="demo">Let AJAX change this text.</p>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name = "submit">
+      </form>
 
-	<button type="button" onclick="loadDoc()">Change Content</button>
-
-	<script type="text/javascript">
-		
-      function loadDoc(){
-      	var xhttp;
-      	if(window.XMLHttpRequest)
-      	{
-      		//code for modern browsers
-      		xhttp = new XMLHttpRequest();
-      	}
-      	else
-      	{
-      		//code for IE6, IE5
-      		xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      	}
-      	xhttp.onreadystatechange = function(){
-      		if(this.readyState == 4 && this.status == 200)
-      		{
-      			document.getElementById("demo").innerHTML = this.responseText;
-      		}
-      	};
-      	xhttp.open("GET","data.txt",true);
-      	xhttp.send();
-      }
-
-	</script>
 </body>
 </html>
