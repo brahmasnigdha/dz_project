@@ -562,6 +562,13 @@ input[type=text].employee_details_input{
     border-radius: 2px;
     border:1px solid gray;
 }
+input[type=date].employee_details_input{
+    
+    height: 35px;
+    border-radius: 2px;
+    border:1px solid gray;
+}
+
 
 table.employee_details_table th,td{
     padding: 6px;

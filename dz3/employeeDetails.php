@@ -46,7 +46,7 @@
 				 					<label>Date of Birth</label>
 				 				</td>
 				 				<td>
-				 					<input type="text" name="employee_details_dob" class = "employee_details_input">
+				 					<input type="date" name="employee_details_dob" class = "employee_details_input">
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -54,7 +54,17 @@
 				 					<label>Blood Group</label>
 				 				</td>
 				 				<td>
-				 					<input type="text" name="employee_details_blood_group" class = "employee_details_input">
+				 					
+				 					<select name="employee_details_blood_group" class = "employee_details_input">
+				 						<option value="O-">O-</option>
+				 						<option value="O+">O+</option>
+				 						<option value="A-">A-</option>
+				 						<option value="A+">A+</option>
+				 						<option value="B-">B-</option>
+				 						<option value="B+">B+</option>
+				 						<option value="AB-">AB-</option>
+				 						<option value="AB+">AB+</option>
+				 					</select>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -198,39 +208,38 @@
 			       		<tr>
 			       			<td><label>Joining Date</label></td>
 			       			<td>
-			       				<input type="text" name="employee_details_joining_date" class = "employee_details_input">
+			       				<input type="date" name="employee_details_joining_date" class = "employee_details_input">
 			       			</td>
 			       		</tr>
-<!------------------------------------------------------------------------------------------------------------------------------------>
 			       		<tr>
 			       			<td><label>ID Proof</label></td>
 			       			<td>
-			       				<input type="file" name="id_proof_file" id="id_proof_file" class = "employee_details_input">
+			       				<input type="file" name="employee_details_id_proof" id="employee_details_id_proof" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				
+			       				<!--<button class="employee_details_browse">Browse</button>-->
 			       			</td>
 			       		</tr>
 			       		<tr>
 			       			<td><label>Resume</label></td>
 			       			<td>
-			       				<input type="file" name="resume_file" id="resume_file" class = "employee_details_input">
+			       				<input type="file" name="employee_details_resume" id="employee_details_resume" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				
+			       				<!--<button class="employee_details_browse">Browse</button>-->
 			       			</td>
 			       		</tr>
 			       		<tr>
 			       			<td><label>Cover Letter</label></td>
 			       			<td>
-			       				<input type="file" name="cover_letter_file" id="cover_letter_file" class = "employee_details_input">
+			       				<input type="file" name="employee_details_cover_letter" id="employee_details_cover_letter" class = "employee_details_input">
 			       			</td>
 			       			<td>
-			       				
+			       				<!--<button class="employee_details_browse">Browse</button>-->
 			       			</td>
 			       		</tr>
 			       		
-<!------------------------------------------------------------------------------------------------------------------------------------>			       		</table>
+			       		</table>
 			       		
 			       	</form>
 			       </div>
@@ -244,7 +253,7 @@
 			       		<tr>
 			       			<td><label>Basic Salary</label></td>
 			       			<td>
-			       				<input type="text" name="employee_details_employee_type" class = "employee_details_input">
+			       				<input type="text" name="employee_details_basic_salary" class = "employee_details_input">
 			       			</td>
 			       		</tr>		       		
 			       		</table>
