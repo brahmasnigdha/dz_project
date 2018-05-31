@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2018 at 03:29 PM
+-- Generation Time: May 31, 2018 at 03:37 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -92,6 +92,14 @@ CREATE TABLE `employee` (
   `basicSalary` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`empNo`, `fName`, `mName`, `lName`, `dob`, `bloodGroup`, `gender`, `address`, `city`, `state`, `phone`, `email`, `employeeType`, `department`, `joiningDate`, `basicSalary`) VALUES
+(2, 'Namrata', '', 'Das', '1999-05-15', 'O-', 'female', 'Paltan Bazar', 'Guwahati', 'Assam', '1234567890', 'namrata@gmail.com', 'part_time', 'UX Designer', '2018-05-28', 12345465),
+(3, 'Snigdha', '', 'Brahma', '1990-07-12', 'O-', 'female', 'Kharghuli', 'Guwahati', 'Assam', '9435552758', 'brahmasnigdha94@gmail.com', 'full_time', 'UX Designer', '2018-05-01', 12345678);
+
 -- --------------------------------------------------------
 
 --
@@ -110,7 +118,7 @@ CREATE TABLE `login_table` (
 
 INSERT INTO `login_table` (`userName`, `userPassword`, `roleId`) VALUES
 ('Alex', 'admin', 1),
-('Snigdha', 'hello', 2),
+('Snigdha', 'hello123', 2),
 ('Kangkana', 'admin', 10),
 ('Kajal', 'admin', 9),
 ('Ishani', 'ishani', 2),
@@ -232,7 +240,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `empNo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `empNo` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `role_table`

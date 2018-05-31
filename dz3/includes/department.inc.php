@@ -6,7 +6,6 @@ session_start();
 if(isset($_POST['add']))
 {
 	
-
 	$dept_name = mysqli_escape_string($conn, $_POST['department_name']);
 	$dept_location = mysqli_escape_string($conn, $_POST['department_location']);
 

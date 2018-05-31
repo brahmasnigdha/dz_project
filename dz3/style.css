@@ -590,8 +590,10 @@ p#add_employee_button_p{
     text-align: right;
     margin:0;
 }
-button.employee_details_browse{
-    padding: 5px 10px;
+button.employee_details_upload{
+    padding: 3px 20px;
+    border-radius: 4px;
+    background-color: white;
 }
 #employee_details_department {
     width: 150px;

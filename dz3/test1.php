@@ -1,22 +1,11 @@
-<?php
-	//start session
-    session_start();
-?>
-
-<!DOCTYPE html>
 <html>
 <head>
-      <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-  
-      <form action = "includes/test.php" method = "POST" enctype="multipart/form-data">
-            
-            Select image to upload:
-
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name = "submit">
-      </form>
-
+    <form enctype="multipart/form-data" action="includes/test.php" method="POST">
+        Choose a file to upload: <input name="uploadedfile" type="file" /><br />
+        <input type="submit" value="Upload File" />
+    </form>
 </body>
 </html>
