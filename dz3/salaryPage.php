@@ -12,12 +12,12 @@
 				 <p id = "salary_information_heading">Salary Information</p>
 				 <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       	<form class="salary_details_form"> 
+			       	<form class="salary_details_form" action = "includes/salaryPage.inc.php" method = "POST"> 
 				 		<table class="salary_details_table">
 			       			<tr>
-			       				<td><label>Employee Name/ID</label></td>
+			       				<td><label>Employee First Name/ID</label></td>
 			       				<td><input type="text" name="salary_details_name" class = "salary_details_input"></td>
-			       				<td><button id="employee_search_button_salary_page">Search</button></td>
+			       				<td><button id="employee_search_button_salary_page" name="employee_search_button_salary_page">Search</button></td>
 			       			</tr>			       		
 			       		</table>
 			       		
@@ -33,12 +33,55 @@
 				              <th>Employee Name</th>
 				              <th>Department</th>
 				            </tr>
-				            <tr>
-				              <td>#</td>
-				              <td>Employee ID</td>
-				              <td>Employee Name</td>
-				              <td>Department</td>
-				            </tr>
+				            <?php
+                               include 'includes/dbh.inc.php';
+
+                               $fullURL = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+                               if(strpos($fullUrl, "found") == true )
+                               {
+                                  if(isset($_SESSION['search_value']))
+                                  {
+                                       $session_value = $_SESSION['search_value'];
+
+                                       $sql_select_search = "SELECT * FROM employee WHERE empNo = '$session_value' OR fName = '$session_value'";
+                                       $result = mysqli_query($conn, $sql_select_search);
+                                       $result_check = mysqli_num_rows($result);
+
+                                       if($result_check > 0)
+                                       {
+                                       	  while($row = mysqli_fetch_assoc($result))
+                                       	  {
+                                              echo "<tr>";
+	                                          echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\" onclick = \"getSalaryInfo()\"></td>";
+	                                          echo "<td>".$row['empNo']."</td>";
+	                                          echo "<td>".$row['fName']." ".$row['mName']." ".$row['lName']."</td>";
+	                                          echo "<td>".$row['department']."</td>";
+	                                          echo "</tr>";
+                                       	  }
+                                       }
+                                  }
+                                  else
+                                  {
+                                        echo "<tr>";
+                                        echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\"></td>";
+                                        echo "<td></td>";
+                                        echo "<td></td>";
+                                        echo "<td></td>";
+                                        echo "</tr>";
+                                  }
+                               }
+                               else
+                               {
+                                   echo "<tr>";
+                                   echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\"></td>";
+                                   echo "<td></td>";
+                                   echo "<td></td>";
+                                   echo "<td></td>";
+                                   echo "</tr>";
+                               }
+				            ?>
+				            
 			       		</table>
 			       	</form>
 			       </div>
@@ -86,7 +129,7 @@
 				            </tr>
 				            <tr>
 				            	<td>Date Salary Recieved</td>
-				            	<td><input type="text" name="salary_details_date_salary_recieved" class = "salary_details_input"></td>
+				            	<td><input type="date" name="salary_details_date_salary_recieved" class = "salary_details_input"></td>
 				            	<td></td>
 				            	<td></td>
 				            	<td></td>
