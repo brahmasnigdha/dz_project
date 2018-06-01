@@ -53,7 +53,7 @@
                                        	  while($row = mysqli_fetch_assoc($result))
                                        	  {
                                               echo "<tr>";
-	                                          echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\" onclick = \"getSalaryInfo()\"></td>";
+	                                          echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\" onclick = \"getSalaryInfo(".$row['empNo'].",".$row['fName'].",".$row['mName'].",".$row['lName'].",".$row['department'].",".$row['basicSalary'].")\"></td>";
 	                                          echo "<td>".$row['empNo']."</td>";
 	                                          echo "<td>".$row['fName']." ".$row['mName']." ".$row['lName']."</td>";
 	                                          echo "<td>".$row['department']."</td>";
@@ -97,7 +97,7 @@
 				            	
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="salary_details_employee_ID" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_employee_ID" id="salary_details_employee_ID" class = "salary_details_input"></td>
 				            
 				            </tr>
 				             <tr>
@@ -105,7 +105,7 @@
 				            
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="salary_details_employee_name" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_employee_name" id="salary_details_employee_name" class = "salary_details_input"></td>
 				            	
 				            </tr>
 				             <tr>
@@ -113,7 +113,7 @@
 				            	
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="salary_details_department" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_department" id="salary_details_department" class = "salary_details_input"></td>
 
 				            </tr>
 			       		</table>
@@ -136,7 +136,7 @@
 				            </tr>
 				             <tr>
 				            	<td>Basic Salary</td>
-				            	<td><input type="text" name="salary_details_basic_salary" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_basic_salary" id="salary_details_basic_salary" class = "salary_details_input"></td>
 				            	<td></td>
 				            	<td></td>
 				            	<td></td>
@@ -149,11 +149,11 @@
 				            	<td>Net Salary</td>
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="salary_details_tax_deduction" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_hra" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_ta" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_da" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_net_salary" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_tax_deduction" id="salary_details_tax_deduction" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_hra" id="salary_details_hra" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_ta" id="salary_details_ta" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_da" id="salary_details_da" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_net_salary" id="salary_details_net_salary" class = "salary_details_input"></td>
 				            </tr>
 			       		</table>
 			       	    </form>
@@ -173,6 +173,7 @@
 			
 		</div>
 </div>
+<script type="text/javascript" src="includejs/salarypage.js"></script>
 <?php
    include 'footer.php';
 ?>
