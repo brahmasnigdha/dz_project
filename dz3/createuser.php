@@ -52,7 +52,6 @@
 									else
 									{
 										while($row = mysqli_fetch_assoc($result)){
-
 											echo "<option value ='".$row['roleId']."' id='".$row['roleId']."'>".$row['roleName']."</option>";
 										}
 									}
@@ -72,6 +71,56 @@
                <td>
                   <button id="update" name = "update" hidden>Update User</button>
                   <button id="delete" name = "delete_button" class="delete" hidden>Delete</button></td>
+             </tr>
+             <tr>
+               <td colspan="2" id="error_cell">
+               <span class="error">
+                      <?php 
+                          $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "password=do_not_match") == true )
+                          {
+                           
+                           echo "Passwords do not match.";
+                          }
+                          elseif(strpos($fullUrl,"user=exist") == true)
+                          {
+                        
+                            echo "This user already exists.";
+                          }
+                          elseif(strpos($fullUrl,"currentPassword=empty") == true)
+                          {
+                    
+                            echo "Kindly type in the correct password.";
+                          }
+                          elseif(strpos($fullUrl,"confirm_password_not_equal_newPassword") == true)
+                          {
+             
+                            echo "New password and confirm password don't match.";
+                          }
+
+                        ?>
+                  </span>
+                  <span class="success">
+                    <?php
+                    
+                       $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "user=success") == true )
+                          {
+                     
+                            echo "User has been created successfully.";
+                          }
+                          elseif(strpos($fullUrl, "update_succesful") == true )
+                          {
+               
+                           echo "Update successful";
+                          }
+                          elseif(strpos($fullUrl, "user=deleted") == true)
+                          {
+                            echo "Delete successful";
+                          }
+                    ?>
+                  </span>
+               </td>
              </tr>
            </table>
         </form>

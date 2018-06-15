@@ -31,6 +31,7 @@
 			}
 			else
 			{
+				$_SESSION['user_name'] = $username;
 				header("Location: ../home.php?success");
 				exit();
 			}

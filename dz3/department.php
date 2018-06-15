@@ -12,22 +12,28 @@
       <!--For Department Information -->
       <div class="w3-panel w3-white" id = "panel">
       <p id = "table_heading">Department Information</p>
-        <form  class = "department_form" action = "includes/department.inc.php" method="POST">
+        <form  class = "department_form" action = "includes/department.inc.php" method="POST" id="department_form">
            <table class="department_table">
-            <tr><td></td><td><input type="text" name="department_id" id="department_id" hidden></td></tr>
+            <tr>
+              <td></td>
+              <td><input type="text" name="department_id" id="department_id" hidden>
+              </td>
+            </tr>
              <tr>
                <td><label>Department Name</label></td>
-               <td><input type="text" name="department_name" id="department_name" required></td>
+               <td><input type="text" name="department_name" id="department_name" required>
+                    
+               </td>
              </tr>
              <tr>
                <td><label>Department Location</label></td>
-               <td><input type="text" name="department_location" id="department_location" required></td>
+               <td><input type="text" name="department_location" id="department_location" required>
+               </td>
              </tr>
              <tr>
                 <td></td>
                 <td id = "add_update_button">
-                  <button id="add" name = "add">Add</button>
-                  
+                  <button id="add" name = "add">Add</button>   
                 </td>
              </tr>
              <tr>
@@ -35,6 +41,52 @@
                <td>
                   <button id="update" name = "update" hidden>Update</button>
                   <button id="delete" name = "delete_button" class="delete" hidden>Delete</button></td>
+             </tr>
+             <tr>
+               <td colspan="2" id="error_cell">
+               <span class="error">
+                      <?php 
+                          $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "invalid_input") == true )
+                          {
+                            //echo "<script>alert(\"Entered information(s) are invalid. Kindly, use characters.\")</script>";
+                           echo "Entered information(s) are invalid. Kindly, use characters.";
+                          }
+                          elseif(strpos($fullUrl,"department=exist") == true)
+                          {
+                            //echo "<script>alert(\"Entered information(s) already exists.\")</script>";
+                            echo "Entered information(s) already exists.";
+                          }
+                          elseif(strpos($fullUrl,"delete=cannot_delete") == true)
+                          {
+                           // echo "<script>alert(\"Information(s) cannot be deleted\")</script>";
+                            echo "Information(s) cannot be deleted";
+                          }
+
+
+                        ?>
+                  </span>
+                  <span class="success">
+                    <?php
+                    
+                       $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "department=success") == true )
+                          {
+                            //echo "<script>alert(\"Information entered successfully\")</script>";
+                            echo "Information entered successfully";
+                          }
+                          elseif(strpos($fullUrl, "delete=delete_success") == true )
+                          {
+                            //echo "<script>alert(\"Delete successful\")</script>";
+                           echo "Delete successful";
+                          }
+                          elseif(strpos($fullUrl, "update=success") == true)
+                          {
+                            echo "Update successful";
+                          }
+                    ?>
+                  </span>
+               </td>
              </tr>
              
            </table>
@@ -76,8 +128,7 @@
                   $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
                   if(strpos($fullUrl, "found") == true )
-                  {
-                    
+                  {                    
                     if(isset($_SESSION['search_info']))
                     {
                       $search_info = $_SESSION['search_info'];
@@ -88,8 +139,7 @@
 
                         while($row = mysqli_fetch_array($result))
                         {
-                          echo "<tr>";
-                          
+                          echo "<tr>";              
                           echo "<td 
 style='visibility: hidden;'  id='departmentNo".$row['departmentNo']."'>".$row['departmentNo']."</td>";
                           echo "<td>".($i++)."</td>";
@@ -102,6 +152,7 @@ style='visibility: hidden;'  id='departmentNo".$row['departmentNo']."'>".$row['d
                         }     
                     }
                     else{
+
                       $sql_select = "SELECT * FROM department";
                       $result = mysqli_query($conn, $sql_select);
                       $result_check = mysqli_num_rows($result);
@@ -112,11 +163,9 @@ style='visibility: hidden;'  id='departmentNo".$row['departmentNo']."'>".$row['d
                       }
                       else
                       {
-
                         while($row = mysqli_fetch_array($result))
                         {
-                          echo "<tr>";
-                          
+                          echo "<tr>";  
                           echo "<td 
 style='visibility: hidden;' id='departmentNo".$row['departmentNo']."'> ".$row['departmentNo']."</td>";
                            echo "<td>".($i++)."</td>";

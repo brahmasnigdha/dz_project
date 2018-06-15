@@ -28,10 +28,11 @@
 			       	<form class="salary_details_form_1"> 
 				 		<table class="salary_details_table_1">
 			       			 <tr>
-				              <th>#</th>
+				              
 				              <th>Employee ID</th>
 				              <th>Employee Name</th>
 				              <th>Department</th>
+				              <th></th>
 				            </tr>
 				            <?php
                                include 'includes/dbh.inc.php';
@@ -53,31 +54,31 @@
                                        	  while($row = mysqli_fetch_assoc($result))
                                        	  {
                                               echo "<tr>";
-	                                          echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\" onclick = \"getSalaryInfo(".$row['empNo'].",".$row['fName'].",".$row['mName'].",".$row['lName'].",".$row['department'].",".$row['basicSalary'].")\"></td>";
 	                                          echo "<td>".$row['empNo']."</td>";
 	                                          echo "<td>".$row['fName']." ".$row['mName']." ".$row['lName']."</td>";
 	                                          echo "<td>".$row['department']."</td>";
+	                                          echo "<td><button type=\"button\" onclick = \"getSalaryInfo('".$row['empNo']."', '".$row['fName']."', '".$row['mName']."', '".$row['lName']."', '".$row['department']."', '".$row['basicSalary']."')\">Show salary details</button></td>";
 	                                          echo "</tr>";
                                        	  }
                                        }
                                   }
                                   else
                                   {
-                                        echo "<tr>";
-                                        echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\"></td>";
+                                        echo "<tr>";                                     
                                         echo "<td></td>";
                                         echo "<td></td>";
                                         echo "<td></td>";
+                                        echo "<td><button type=\"button\">Show salary details</button></td>";
                                         echo "</tr>";
                                   }
                                }
                                else
                                {
-                                   echo "<tr>";
-                                   echo "<td><input type=\"checkbox\" name=\"employee_checkbox\" id=\"employee_checkbox\"></td>";
+                                   echo "<tr>";                                  
                                    echo "<td></td>";
                                    echo "<td></td>";
                                    echo "<td></td>";
+                                   echo "<td><button type=\"button\">Show salary details</button></td>";
                                    echo "</tr>";
                                }
 				            ?>
@@ -87,7 +88,7 @@
 			       </div>
 			       <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       		<form class="salary_details_form"> 
+			       		<form class="salary_details_form" action="includes/salaryPage.inc.php" method="POST"> 
 				 		<table class="salary_details_table">
 			       			<tr>
 				              <th colspan="2">Employee Details</th>
@@ -117,19 +118,19 @@
 
 				            </tr>
 			       		</table>
-			       	    </form>
+			       	    <!--</form>-->
 			       </div>
 				   </div>
 				   <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       		<form class="salary_details_form"> 
+			       		<!--<form class="salary_details_form" action = "includes/salaryPage.inc.php" method = "POST"> -->
 				 		<table class="salary_details_table">
 			       			<tr>
 				              <th colspan="2">Salary Details</th>
 				            </tr>
 				            <tr>
 				            	<td>Date Salary Recieved</td>
-				            	<td><input type="date" name="salary_details_date_salary_recieved" class = "salary_details_input"></td>
+				            	<td><input type="date" name="salary_details_date_salary_recieved" class = "salary_details_input" required></td>
 				            	<td></td>
 				            	<td></td>
 				            	<td></td>
@@ -149,20 +150,21 @@
 				            	<td>Net Salary</td>
 				            </tr>
 				            <tr>
-				            	<td><input type="text" name="salary_details_tax_deduction" id="salary_details_tax_deduction" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_hra" id="salary_details_hra" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_ta" id="salary_details_ta" class = "salary_details_input"></td>
-				            	<td><input type="text" name="salary_details_da" id="salary_details_da" class = "salary_details_input"></td>
+				            	<td><input type="text" name="salary_details_tax_deduction" id="salary_details_tax_deduction" class = "salary_details_input" onkeyup="netSalary()" required></td>
+				            	<td><input type="text" name="salary_details_hra" id="salary_details_hra" class = "salary_details_input" onkeyup="netSalary()" required></td>
+				            	<td><input type="text" name="salary_details_ta" id="salary_details_ta" class = "salary_details_input" onkeyup="netSalary()" required></td>
+				            	<td><input type="text" name="salary_details_da" id="salary_details_da" class = "salary_details_input" onkeyup="netSalary()" required></td>
 				            	<td><input type="text" name="salary_details_net_salary" id="salary_details_net_salary" class = "salary_details_input"></td>
 				            </tr>
 			       		</table>
-			       	    </form>
+			       	    
 			       </div>
 				   </div>
 				   <div class="row_2_cols_2">
 			       <div class = "column_row_2_cols_2">
-			       		<p id="add_salary_button_p"><button id="add_salary_button">Add Salary</button></p>
+			       		<p id="add_salary_button_p"><button id="add_salary_button" name="add_salary_button">Add Salary</button></p>
 			       </div>
+			       </form>
 				 </div>
 			</div>
 		</div>

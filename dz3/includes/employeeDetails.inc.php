@@ -75,11 +75,26 @@
    /*
      validating firstname, middle name and last name
    */
-   if(!preg_match("/^[a-zA-Z ]*$/",$fname) || !preg_match("/^[a-zA-Z ]*$/",$mname) || !preg_match("/^[a-zA-Z ]*$/",$lname) || !preg_match("/^[a-zA-Z ]*$/",$city))
+   if(!preg_match("/^[a-zA-Z ]*$/",$fname))
     {
-       header("Location: ../employeeDetails.php?invalid_input");
+       header("Location: ../employeeDetails.php?invalid_input=first_name_error");
        exit();
     }  
+    elseif(!preg_match("/^[a-zA-Z ]*$/",$mname))
+    {
+        header("Location: ../employeeDetails.php?invalid_input=middle_name_error");
+        exit();
+    }
+    elseif(!preg_match("/^[a-zA-Z ]*$/",$lname))
+    {
+        header("Location: ../employeeDetails.php?invalid_input=last_name_error");
+        exit();
+    }
+    elseif(!preg_match("/^[a-zA-Z ]*$/",$city))
+    {
+        header("Location: ../employeeDetails.php?invalid_input=city_name_error");
+        exit();
+    }
     else
     {
         /*
@@ -93,7 +108,7 @@
        else
        {
            /*
-               validate email
+               validate phone
            */
             if(!preg_match("/^[0-9]{10}$/", $phone))
             {
@@ -109,9 +124,9 @@
                 }
                 else
                 {
-                    $sql_insert = "INSERT INTO employee (fName, mName, lName, dob, bloodGroup, gender, address, city, state, phone, email, employeeType, department, joiningDate,basicSalary) VALUES('$fname','$mname','$lname','$dob','$blood_group','$gender','$address','$city','$state','$phone','$email','$employee_type','$department','$joining_date','$basic_salary')";
+                   /* $sql_insert = "INSERT INTO employee (fName, mName, lName, dob, bloodGroup, gender, address, city, state, phone, email, employeeType, department, joiningDate,basicSalary) VALUES('$fname','$mname','$lname','$dob','$blood_group','$gender','$address','$city','$state','$phone','$email','$employee_type','$department','$joining_date','$basic_salary')";
 
-                    mysqli_query($conn, $sql_insert);
+                    mysqli_query($conn, $sql_insert);*/
                     /*--------------------------------------------------UPLOAD-----------------------------------------------------------*/
                      if(in_array($fileActualExtension_id_proof, $allowed_id_proof) && in_array($fileActualExtension_resume, $allowed_resume) && in_array($fileActualExtension_cover_letter, $allowed_cover_letter))
                      {
@@ -130,6 +145,11 @@
                                 move_uploaded_file($fileTmpNameid_proof, $fileDestination_id_proof);
                                 move_uploaded_file($fileTmpName_cover_letter, $fileDestination_cover_letter);
                                 move_uploaded_file($fileTmpName_resume, $fileDestination_resume);
+
+                                $sql_insert = "INSERT INTO employee (fName, mName, lName, dob, bloodGroup, gender, address, city, state, phone, email, employeeType, department, joiningDate,basicSalary,id_proof,resume,cover_letter) VALUES('$fname','$mname','$lname','$dob','$blood_group','$gender','$address','$city','$state','$phone','$email','$employee_type','$department','$joining_date','$basic_salary', '$fileDestination_id_proof','$fileDestination_resume','$fileDestination_cover_letter')";
+
+                                mysqli_query($conn, $sql_insert);
+
                                 header("Location: ../employeeDetails.php?employee_add=successful");
                                 exit();
 

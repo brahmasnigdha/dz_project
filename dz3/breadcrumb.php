@@ -43,6 +43,25 @@
 			    echo "<li><a href = '#'>"."Employee"."</a></li>";
 			    echo  "<li><a href = 'attendancePage.php'>"."Attendance"."</a></li>";
 			}
+			elseif (strpos($fullUrl,"viewAttendance.php") == true) 
+			{
+			    echo "<li><a href = 'home.php'>"."Home"."</a></li>";
+			    echo "<li><a href = '#'>"."Employee"."</a></li>";
+			    echo  "<li><a href = 'viewAttendance.php'>"."View Attendance"."</a></li>";
+			}
+			elseif (strpos($fullUrl,"viewEmployeeDetails.php") == true) 
+			{
+			    echo "<li><a href = 'home.php'>"."Home"."</a></li>";
+			    echo "<li><a href = '#'>"."Employee"."</a></li>";
+			    echo  "<li><a href = 'viewEmployeeDetails.php'>"."View Employee Details"."</a></li>";
+			}
+			elseif (strpos($fullUrl,"viewSalaryDetails.php") == true) 
+			{
+			    echo "<li><a href = 'home.php'>"."Home"."</a></li>";
+			    echo "<li><a href = '#'>"."Employee"."</a></li>";
+			    echo  "<li><a href = 'viewSalaryDetails.php'>"."View Salary Details"."</a></li>";
+			}
+
 	?>
     </ul>
 </div>

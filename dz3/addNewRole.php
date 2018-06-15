@@ -35,6 +35,45 @@
                  <button id = 'delete' class='delete' name = "delete" hidden>Delete</button>
                </td>
              </tr>
+             <tr>
+               <td colspan="2" id="error_cell">
+               <span class="error">
+                      <?php 
+                          $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "role=exist") == true )
+                          {
+                           
+                           echo "The given role already exists.";
+                          }
+                          
+                        ?>
+                  </span>
+                  <span class="success">
+                    <?php
+                    
+                       $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "role=added_successfully") == true )
+                          {
+                     
+                            echo "Role added successfully.";
+                          }
+                          elseif(strpos($fullUrl, "no_update_require") == true )
+                          {
+               
+                           echo "No update required";
+                          }
+                          elseif(strpos($fullUrl, "update_successful") == true)
+                          {
+                            echo "Update successful";
+                          }
+                          elseif(strpos($fullUrl, "delete_successful") == true)
+                          {
+                            echo "Delete successful";
+                          }
+                    ?>
+                  </span>
+               </td>
+             </tr>
            </table>
         </form>
       </div>

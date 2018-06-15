@@ -37,11 +37,11 @@
 				{
 					$sql_insert = "INSERT INTO login_table (userName, userPassword, roleId) VALUES ('$userName', '$newPassword', '$role_Id')";
 					mysqli_query($conn, $sql_insert);
-					header("Location: ../createuser.php?new_user=success");
+					header("Location: ../createuser.php?user=success");
 					exit();
 				}
 				else{
-					header("Location: ../createuser.php?new_user=exists");
+					header("Location: ../createuser.php?user=exists");
 					exit();
 				}
 				
@@ -125,7 +125,7 @@
 
 		if($re_typePassword !== $newPassword)
 		{
-			header("Location: ../createuser.php>confirm_password_not_equal_newPassword");
+			header("Location: ../createuser.php?confirm_password_not_equal_newPassword");
 			exit();
 		}
 		else

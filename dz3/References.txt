@@ -1,0 +1,39 @@
+References:
+
+1. https://www.codexworld.com/add-datepicker-to-input-field-jquery-ui/
+2. https://www.youtube.com/watch?v=7bCmoOS1xi4
+3. https://www.youtube.com/watch?v=3CS-eQdcMLU
+4. https://stackoverflow.com/questions/10511893/prevent-back-button-after-logout
+5. http://www.hackingwithphp.com/10/3/5/ending-a-session
+6. https://www.w3schools.com/sql/sql_between.asp
+7. https://stackoverflow.com/questions/6238992/converting-string-to-date-and-datetime
+8. https://www.codeproject.com/Tips/355235/How-to-search-between-two-dates-and-get-all-record
+9. https://www.w3schools.com/sql/sql_dates.asp
+10. https://www.w3schools.com/howto/howto_css_table_responsive.asp
+11. https://www.w3schools.com/php/func_ftp_get.asp
+12. https://www.w3schools.com/php/php_ref_ftp.asp
+13. https://www.youtube.com/watch?v=KFw0V7ArORA
+14. https://www.youtube.com/watch?v=GqzhXCKP3iQ
+15. https://www.youtube.com/watch?v=ZUAKLUZa-AU
+14. http://www.wellho.net/mouth/1681_Adding-a-button-to-a-web-page-to-print-the-page.html
+15. https://www.w3schools.com/php/func_string_explode.asp
+16. https://stackoverflow.com/questions/17816732/xampp-access-forbidden-php/23594870
+17. https://httpd.apache.org/docs/2.4/vhosts/examples.html
+18. https://stackoverflow.com/questions/1968106/generate-download-file-link-in-php
+19. https://www.jqueryscript.net/table/Creating-A-Live-Editable-Table-with-jQuery-Tabledit.html
+20. https://www.jqueryscript.net/table/Inline-Table-Editing-jQuery-Tabledit.html
+21. https://www.jqueryscript.net/tags.php?/editable%20table/
+22. http://api.jquery.com/val/
+23. https://stackoverflow.com/questions/7350860/how-to-pass-parameter-to-click-event-in-jquery
+24. https://www.w3schools.com/jquery/html_attr.asp
+25. https://markcell.github.io/jquery-tabledit/#examples
+26. https://www.jqueryscript.net/table/jQuery-Plugin-For-Editable-Table-Rows-Table-Edits.html
+27. https://www.catswhocode.com/blog/tutorial-create-a-fancy-editable-table-with-jquery-and-purecss
+28. https://www.youtube.com/watch?v=3jYZNTH5teI&t=120s
+29. https://www.youtube.com/watch?v=vYoGKtdl7dQ
+30. http://mrbool.com/how-to-create-an-editable-html-table-with-jquery/27425
+31. https://www.youtube.com/watch?v=BaIgTKj1iCQ&list=PL0eyrZgxdwhy7byLHsVkuhtRV_IpoJU7n
+32. https://stackoverflow.com/questions/3807570/get-the-id-of-current-table-row-with-jquery
+
+
+

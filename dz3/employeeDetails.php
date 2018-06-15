@@ -23,6 +23,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_fname" class = "employee_details_input" required>
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "invalid_input=first_name_error") == true )
+										    {
+										    	echo "Only letters and white space allowed";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -31,6 +42,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_mname" class = "employee_details_input">
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "invalid_input=middle_name_error") == true )
+										    {
+										    	echo "Only letters and white space allowed";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -39,6 +61,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_lname" class = "employee_details_input" required>
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "invalid_input=last_name_error") == true )
+										    {
+										    	echo "Only letters and white space allowed";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -115,6 +148,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_city" class = "employee_details_input" required>
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "invalid_input=city_name_error") == true )
+										    {
+										    	echo "Only letters and white space allowed";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -131,6 +175,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_phone" class = "employee_details_input" required>
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "phone=invalid_format") == true )
+										    {
+										    	echo " Invalid phone format, Enter the 10 digit valid phone number. ";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 			<tr>
@@ -139,6 +194,17 @@
 				 				</td>
 				 				<td>
 				 					<input type="text" name="employee_details_email" class = "employee_details_input" required>
+				 					<span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "email=invalid_format") == true )
+										    {
+										    	echo " Invalid email format ";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 				 				</td>
 				 			</tr>
 				 		</table>
@@ -217,9 +283,21 @@
 			       			<td><label>ID Proof</label></td>
 			       			<td>
 			       				<input type="file" name="employee_details_id_proof" id="employee_details_id_proof" class = "employee_details_input">
+
 			       			</td>
 			       			<td>
 			       			<!--	<button class="employee_details_upload" name = "id_proof_upload">Upload</button>-->
+			       			        <span class="error">
+										<?php 
+										    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+										    if(strpos($fullUrl, "email=invalid_format") == true )
+										    {
+										    	echo " Invalid email format ";
+										    	//exit();
+										    }
+									    ?>
+								
+						            </span>
 			       			</td>
 			       		</tr>
 			       		
@@ -270,7 +348,16 @@
 			      
 			       		<p id="add_employee_button_p"><button type="submit" id="add_employee_button" name="add_employee_button">Add Employee</button></p>
 			       	</form>
-			       		
+			       	<?php
+                        
+                         $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                          if(strpos($fullUrl, "role=added_successfully") == true )
+                          {
+                     
+                            echo "Role added successfully.";
+                          }
+                         
+			       	?>
 			       </div>
 				 </div>
 			</div>

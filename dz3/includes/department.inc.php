@@ -9,7 +9,7 @@ if(isset($_POST['add']))
 	$dept_name = mysqli_escape_string($conn, $_POST['department_name']);
 	$dept_location = mysqli_escape_string($conn, $_POST['department_location']);
 
-    if(preg_match("/[^a-zA-Z]+/", $deptName) || preg_match("/[^a-zA-Z]+/", $deptLocation))
+    if(preg_match("/[^a-zA-Z ]/", $dept_name) || preg_match("/[^a-zA-Z ]/", $dept_location))
     {
     	header("Location: ../department.php?department=invalid_input");
     	exit();
@@ -29,7 +29,7 @@ if(isset($_POST['add']))
 		{
 			if($result_check > 1)
 			{
-				header("Location: ../department.php?department=exist111");
+				header("Location: ../department.php?department=exist");
 				exit();
 			}
 			else{
@@ -59,7 +59,7 @@ elseif(isset($_POST['delete_button']))
 
         mysqli_query($conn, $sql_delete);
 
-        header("Location: ../department.php?delete=success");
+        header("Location: ../department.php?delete=delete_success");
         exit();
    }
 
@@ -100,6 +100,5 @@ elseif(isset($_POST['update']))
 
 	header("Location: ../department.php?update=success");
 	exit();
-
 }
 
